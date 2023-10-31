@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>WebCat</title>
+ <style>
+ body{
+   background-color:black;
+   }
+ span{
+   position:absolute;
+   top:30%;
+   left:40%;
+   font-size:80px;
+   }
+ button{
+   background:rgba(0,0,0,0);
+   position:absolute;
+   top:30%;
+   left:40%;
+   font-size:80px;
+   }
+ </style>
+  </head>
+  <body>
+  <span></span>
+  <audio src="心做-凯皇版.mp3"></audio>	
+  <button onclick="span()">😭</button>	
+  <script>
+  let audio=document.querySelector("audio")
+  function span(){
+      audio.play();
+      }
+ //循环创建50个心
+ for(let i =0;i<50;i++){
+ //创建标签 
+   let xin=document.createElement("span")
+   //设置随机
+ 
+ xin.style.left = Math.round(Math.random()*100)+"%"
+ xin.style.fontSize = Math.round(Math.random()*40)+"px"
+ xin.innerHTML = "❄️"
+ //输入到页面中
+ document.body.appendChild(xin)
+ //定时器 位移动画
+ //初始位置
+ let top = Math.round(Math.random()*100)-100
+ //
+ let i = top
+ setInterval(function (){
+     if(i>100){
+     i = top
+     }
+     i+=0.5
+     xin.style.top =i+"%"
+ 
+ },30)
+ }
+  
+  </script>
+  </body>
+</html>
